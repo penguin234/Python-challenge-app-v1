@@ -6,7 +6,7 @@ from .models import Problem
 
 def home(request):
     problems = Problem.objects
-    return render(request, 'solveproblem\home.html', {'problems': problems})
+    return render(request, 'solveproblem/home.html', {'problems': problems})
 
 
 def problem(request, problem_id):
