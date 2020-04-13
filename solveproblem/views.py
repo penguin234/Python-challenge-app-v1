@@ -11,7 +11,7 @@ def home(request):
 
 def problem(request, problem_id):
     problem = get_object_or_404(Problem, pk=problem_id)
-    return render(request, 'solveproblem\problem.html', {'problem': problem})
+    return render(request, 'solveproblem/problem.html', {'problem': problem})
 
 
 class OutputChecker:
@@ -57,7 +57,7 @@ def submit(request, problem_id):
     except Exception as err:
         result['completed'] = False
         result['description'] = str(err)
-        return render(request, 'solveproblem\\result.html', {'result': result})
+        return render(request, 'solveproblem/result.html', {'result': result})
 
     check = OutputChecker()
     for case in testcases:
@@ -80,4 +80,4 @@ def submit(request, problem_id):
             result['description'] = "Wrong output"
             break
     
-    return render(request, 'solveproblem\\result.html', {'result': result})
+    return render(request, 'solveproblem/result.html', {'result': result})
