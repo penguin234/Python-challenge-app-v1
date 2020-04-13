@@ -1,0 +1,6 @@
+{% for problem in problems.all %}
+    <div>
+        <h3> {{ problem.title }} </h1>
+        <a href="{% url 'problem' problem.id %}"> solve </a>
+    </div>
+{% endfor %}

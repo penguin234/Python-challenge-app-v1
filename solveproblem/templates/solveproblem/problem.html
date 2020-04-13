@@ -1,0 +1,45 @@
+<style>
+    .problem {
+        float: left;
+    }
+    .solve {
+        float: right;
+    }
+    .title {
+        text-align: center;
+    }
+</style>
+
+
+<h1 class="title"> 도전! 파이썬 </h1>
+
+
+<div class="problem">
+    <h2 class="title"> {{ problem.title }} </h3>
+    <p>
+        <h3> Description </h3>
+        {{ problem.description }}
+    </p>
+    <p>
+        <h3> Input Examples </h3>
+        {% for case in problem.TestCasePublic %}
+            <h4> case </h4>
+            {% for line in case.data %}
+                {{ line.type }} {{ line.data }} <br>
+            {% endfor %}
+        {% endfor %}
+    </p>
+</div>
+
+
+<div class="solve">
+    <form action="{% url 'submit' problem.id %}">
+        <textarea cols="80" rows="30" name="code" class="textarea"></textarea>
+        <br>
+        <input type="submit" value="submit" />
+    </form>
+
+    <textarea cols="80" rows="5" readonly name="console" class="consolearea"></textarea>
+    <br>
+    <textarea cols="80" rows="1" name="input" class="inputarea"></textarea>
+</div>
